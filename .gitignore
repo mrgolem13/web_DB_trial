@@ -3,6 +3,6 @@ __pycache__/
 *.pyc
 .venv/
 .idea/
-26project1/
+views/26project1/
+views/course1/
 migrations/
-course1/
