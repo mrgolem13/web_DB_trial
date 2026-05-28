@@ -1,0 +1,7 @@
+*.db
+__pycache__/
+*.pyc
+.venv/
+.idea/
+26project1/
+migrations/

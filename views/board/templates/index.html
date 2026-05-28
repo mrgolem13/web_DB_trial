@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+    <div style="display: flex; align-items: center;">
+        <img src="/static/logo.png" class="logo" alt="로고">
+    </div>
+        <h1>게시판</h1>
+
+        {% if session['username'] %}
+        <p>{{session['username']}}님 환영합니다!
+            <button onclick="location.href='/logout/'">로그아웃</button></p>
+
+        {%if session['role'] == 'admin' %}
+        <button onclick="location.href='/admin/'">관리자페이지</button>
+        {% endif %}
+        {% else %}
+        <button onclick="location.href='/login/'">로그인</button>
+        <button onclick = "location.href='/register/'">회원가입</button>
+        {% endif %}
+
+        <p>전체 글 {{count | safe}}개</p>
+
+        <form method="get">
+            <input type="text" name="keyword" value="{{keyword | safe}}" placeholder="제목 검색">
+            <input type="submit" value="검색">
+            <a href="/">초기화</a>
+        </form>
+        {{searchResult | safe}}
+        <button onclick = "location.href='/create/'">글쓰기</button>
+
+        <table border = "1">
+            <tr>
+                <th>번호</th><th>제목</th><th>작성자</th><th>날짜</th><th>조회수</th>
+            </tr>
+            {{postList | safe}}
+        </table>
+    </body>
+</html>

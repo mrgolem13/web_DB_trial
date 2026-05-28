@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+    <div style="display: flex; align-items: center;">
+        <img src="/static/logo.png" class="logo" alt="로고">
+    </div>
+        <h1>게시판</h1>
+        <h2>{{post[1] | safe}}</h2>
+        <p>작성자 : {{post[3] | safe}} | 날짜 : {{post[4] | safe}} | 조회수:{{post[5] | safe}}</p>
+        <hr>
+        <p>{{post[2] | safe}}</p>
+        <hr>
+        <button onclick = "location.href='/update/{{post[0] | safe}}/'">수정</button>
+        <button onclick = "location.href='/delete/{{post[0] | safe}}/'">삭제</button>
+        <button onclick = "location.href='/'">목록</button>
+    </body>
+</html>
